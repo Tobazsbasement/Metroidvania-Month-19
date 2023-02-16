@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7r0h08pe7fv6"]
+
+[ext_resource type="Texture2D" uid="uid://dbnwgj6bakwlk" path="res://Assets/Part Inventory/Part Slot/Part Slot.png" id="1_6beul"]
+[ext_resource type="Script" path="res://Scripts/Part Inventory/Part Slot/part_slot.gd" id="1_ihnr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhhtm"]
+size = Vector2(92, 88)
+
+[node name="Part Slot" type="Area2D"]
+script = ExtResource("1_ihnr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6beul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_lhhtm")

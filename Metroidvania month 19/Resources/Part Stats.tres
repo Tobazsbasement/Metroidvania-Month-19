@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PartStats" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Body Parts/Part Stats.gd" id="1_b17em"]
+
+[resource]
+script = ExtResource("1_b17em")
+Attack = 10
+Defence = 10
+Speed = 10
+Weight = 10

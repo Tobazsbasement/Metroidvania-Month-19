@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c43ywur0fdlms"]
+
+[ext_resource type="Texture2D" uid="uid://dorurtgkx6g41" path="res://Assets/Part Inventory/BG.png" id="1_28jr2"]
+[ext_resource type="Script" path="res://Scripts/Part Inventory/Part Inventory.gd" id="1_pgp32"]
+[ext_resource type="PackedScene" uid="uid://b7r0h08pe7fv6" path="res://Scenes/Part Inventory/Part Slot/part_slot.tscn" id="2_2rj3n"]
+[ext_resource type="Resource" uid="uid://btwwq3c6hv6cr" path="res://Resources/Inventory Saver.tres" id="2_vqfum"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_pgp32")
+Save = ExtResource("2_vqfum")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_28jr2")
+
+[node name="Head Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(0, -206)
+Part = 0
+
+[node name="Torso Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(3, 76)
+Part = 1
+
+[node name="L Arm Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(-110, -63)
+Part = 2
+
+[node name="R Arm Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(107, -57)
+Part = 3
+
+[node name="R Leg Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(101, 210)
+Part = 5
+
+[node name="L Leg Slot" parent="." instance=ExtResource("2_2rj3n")]
+position = Vector2(-105, 209)
+Part = 4

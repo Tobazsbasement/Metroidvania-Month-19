@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceknyjeqjg8ot"]
+
+[ext_resource type="Script" path="res://Scripts/Body Parts/Body Part Template.gd" id="1_avsd3"]
+[ext_resource type="Texture2D" uid="uid://bq7bskd4c67d5" path="res://icon.svg" id="3_h1gbf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qrxa"]
+size = Vector2(92, 88)
+
+[node name="BodyPart" type="Area2D"]
+script = ExtResource("1_avsd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_h1gbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_8qrxa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
