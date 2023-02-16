@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7sqb1122ql2i"]
+
+[ext_resource type="Script" path="res://Scripts/Character Bodypart/character_body_part.gd" id="1_amjsg"]
+[ext_resource type="Texture2D" uid="uid://bq7bskd4c67d5" path="res://icon.svg" id="1_oy080"]
+
+[node name="Character Bodypart" type="Node2D"]
+script = ExtResource("1_amjsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oy080")

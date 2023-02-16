@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://btwwq3c6hv6cr" path="res://Resources/Inventory Saver.tres" id="2_vqfum"]
 
 [node name="Inventory" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_pgp32")
 Save = ExtResource("2_vqfum")
 
