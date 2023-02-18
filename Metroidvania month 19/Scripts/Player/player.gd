@@ -81,3 +81,11 @@ func set_part_positions():
 	RArm.global_position = RArmPos.global_position
 	LLeg.global_position = LLegPos.global_position
 	RLeg.global_position = RLegPos.global_position
+
+func set_parts(PartArray: Array):
+	Head.part_name = PartArray[0]
+	Torso.part_name = PartArray[1]
+	LArm.part_name = PartArray[2]
+	RArm.part_name = PartArray[3]
+	LLeg.part_name = PartArray[4]
+	RLeg.part_name = PartArray[5]

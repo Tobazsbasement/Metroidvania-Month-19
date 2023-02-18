@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var Save: Resource
+@export var Inventory: InventorySaver
 
 @onready var HeadSlot = $"Head Slot"
 @onready var TorsoSlot = $"Torso Slot"
@@ -9,16 +9,7 @@ extends Node2D
 @onready var LLegSlot = $"L Leg Slot"
 @onready var RLegSlot = $"R Leg Slot"
 
-@onready var SaveData: Dictionary = {
-	"Head Slot": "Basic Head",
-	"Torso Slot": "Basic Torso",
-	"LArm": "Basic Left Arm",
-	"RArm": "Basic Right Arm",
-	"LLeg": " Basic Left Leg",
-	"RLeg": " Basic Right Leg"
-}
-
-var save_path: String = "user://InventorySave.dat"
+var save_path: String = "user://Inventory.tres"
 
 func _ready():
 	pass
@@ -30,15 +21,31 @@ func _process(delta):
 		save_slot()
 
 func load_slot():
-	HeadSlot.CurrentPart = SaveData["Head Slot"]
+	Inventory.HeadSlot = "Placeholder Head"
+	HeadSlot.CurrentPart = Inventory.HeadSlot
 	HeadSlot.initializie_part(HeadSlot.CurrentPart)
-	TorsoSlot.initializie_part(Save.TorsoSlot)
-	LArmSlot.initializie_part(Save.LArmSlot)
-	RArmSlot.initializie_part(Save.RArmSlot)
-	LLegSlot.initializie_part(Save.LLegSlot)
-	RLegSlot.initializie_part(Save.RLegSlot)
+	TorsoSlot.initializie_part(Inventory.TorsoSlot)
+	LArmSlot.initializie_part(Inventory.LArmSlot)
+	RArmSlot.initializie_part(Inventory.RArmSlot)
+	LLegSlot.initializie_part(Inventory.LLegSlot)
+	RLegSlot.initializie_part(Inventory.RLegSlot)
 
 func save_slot():
-	SaveData["HeadSlot"] = HeadSlot.CurrentPart
+	Inventory.HeadSlot = HeadSlot.CurrentPart
+	Inventory.TorsoSlot = TorsoSlot.CurrentPart
+	Inventory.LArmSlot = LArmSlot.CurrentPart
+	Inventory.RArmSlot = RArmSlot.CurrentPart
+	Inventory.LLegSlot = LLegSlot.CurrentPart
+	Inventory.RLegSlot = RLegSlot.CurrentPart
+
+
+func save_inventory():
+	var save = ResourceSaver.save(Inventory, save_path)
+	assert(save == OK)
+
+func load_inventory():
+	if ResourceLoader.exists(save_path):
+		Inventory = ResourceLoader.load(save_path)
+	load_slot()
 
 

@@ -3,7 +3,6 @@ class_name BodyPart
 
 @onready var Sprite: Sprite2D = $Sprite2D
 @export var bodypart: Part
-@export var Stats: Resource
 
 enum Part {HEAD, TORSO, LARM, RARM, LLEG, RLEG}
 
@@ -11,6 +10,7 @@ var PartName: String = ""
 var PreviousSlot: Area2D
 var TargetSlot: Area2D
 var IsMouseOver:bool = false
+var Stats: Array = [0, 0, 0, 0, "", Texture]
 
 signal PartReleased
 
@@ -23,20 +23,20 @@ func _ready():
 	set_part()
 
 func _process(_delta):
-	if IsMouseOver:
+	if IsMouseOver and get_parent().IsMoveable:
 		global_position = get_global_mouse_position()
 	else:
 		global_position = get_parent().global_position
 
 func set_part_stats():
-	pass
+	Stats = BodyPartDatabase.parts[PartName]
+	Sprite.texture = Stats[5]
 
 func drop():
 	if TargetSlot != null:
 		if TargetSlot.Part == bodypart:
 			PreviousSlot.remove_child(self)
 			TargetSlot.add_child(self)
-			print(TargetSlot.name)
 	else:
 		PreviousSlot.remove_child(self)
 		PreviousSlot.add_child(self)

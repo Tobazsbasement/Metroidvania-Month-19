@@ -1,8 +1,11 @@
 extends Node2D
 class_name CharacterBodypart
 
+@onready var Sprite = $Sprite2D
+
 @export var partslot: PARTSLOTS
-@export var stats: Resource
+
+var Stats:Array = [0, 0, 0, 0, "", Texture]
 
 enum PARTSLOTS {
 	HEAD,
@@ -18,7 +21,7 @@ var part_name = ""
 func _ready():
 	set_part()
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func set_part():
@@ -35,3 +38,9 @@ func set_part():
 			partslot = PARTSLOTS.LLEG
 		"Basic Right Leg":
 			partslot = PARTSLOTS.RLEG
+
+func set_stats():
+	if !part_name.is_empty():
+		print(part_name)
+		Stats = BodyPartDatabase.parts[part_name]
+		Sprite.texture = Stats[5]

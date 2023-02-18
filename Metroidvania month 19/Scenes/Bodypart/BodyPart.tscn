@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceknyjeqjg8ot"]
+[gd_scene load_steps=3 format=3 uid="uid://ceknyjeqjg8ot"]
 
-[ext_resource type="Script" path="res://Scripts/Body Parts/Body Part Template.gd" id="1_avsd3"]
-[ext_resource type="Texture2D" uid="uid://bq7bskd4c67d5" path="res://icon.svg" id="3_h1gbf"]
+[ext_resource type="Script" path="res://Scripts/Body Parts/Body Part Template.gd" id="1_e7873"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qrxa"]
 size = Vector2(92, 88)
 
 [node name="BodyPart" type="Area2D"]
-script = ExtResource("1_avsd3")
+script = ExtResource("1_e7873")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_h1gbf")
+position = Vector2(-24, -7)
+scale = Vector2(0.1, 0.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

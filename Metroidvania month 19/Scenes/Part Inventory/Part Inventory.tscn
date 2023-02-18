@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c43ywur0fdlms"]
+[gd_scene load_steps=6 format=3 uid="uid://c43ywur0fdlms"]
 
 [ext_resource type="Texture2D" uid="uid://dorurtgkx6g41" path="res://Assets/Part Inventory/BG.png" id="1_28jr2"]
 [ext_resource type="Script" path="res://Scripts/Part Inventory/Part Inventory.gd" id="1_pgp32"]
+[ext_resource type="Script" path="res://Scripts/Part Inventory/Part Inventory Save.gd" id="2_1olup"]
 [ext_resource type="PackedScene" uid="uid://b7r0h08pe7fv6" path="res://Scenes/Part Inventory/Part Slot/part_slot.tscn" id="2_2rj3n"]
-[ext_resource type="Resource" uid="uid://btwwq3c6hv6cr" path="res://Resources/Inventory Saver.tres" id="2_vqfum"]
+
+[sub_resource type="Resource" id="Resource_h64lg"]
+script = ExtResource("2_1olup")
+HeadSlot = ""
+TorsoSlot = ""
+LArmSlot = ""
+RArmSlot = ""
+LLegSlot = ""
+RLegSlot = ""
 
 [node name="Inventory" type="Node2D"]
-scale = Vector2(0.4, 0.4)
 script = ExtResource("1_pgp32")
-Save = ExtResource("2_vqfum")
+Inventory = SubResource("Resource_h64lg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_28jr2")

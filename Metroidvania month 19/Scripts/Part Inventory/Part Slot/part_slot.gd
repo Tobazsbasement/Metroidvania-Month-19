@@ -8,6 +8,7 @@ enum whatpart {HEAD, TORSO, LARM, RARM, LLEG, RLEG}
 
 var CurrentPart: String
 var IsEmpty: bool = true
+var IsMoveable: bool = true
 
 func _ready():
 	if !CurrentPart.is_empty():
@@ -30,6 +31,7 @@ func initializie_part(WhatPart):
 		loadedpart.PartName = CurrentPart
 		add_child(loadedpart)
 		loadedpart.global_position = global_position
+		loadedpart.set_part_stats()
 
 func _process(_delta):
 	pass
