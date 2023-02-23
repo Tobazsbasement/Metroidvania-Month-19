@@ -18,6 +18,9 @@ class_name Player
 @export var acceleration: int = 500
 @export var gravity: int = 2200
 @export var jump_strength = 800
+@export var attack: int = 1 
+@export var defence: int = 1 
+
 
 enum STATES {
 	IDLE,
@@ -28,6 +31,9 @@ enum STATES {
 
 var current_state: STATES
 var input_vector:Vector2 = Vector2.ZERO
+var total_speed:int 
+var total_defence:int
+var total_attack:int
 
 func _ready():
 	set_part_positions()
@@ -82,6 +88,21 @@ func set_part_positions():
 	LLeg.global_position = LLegPos.global_position
 	RLeg.global_position = RLegPos.global_position
 
+func set_stats():
+	for i in get_children():
+		if i is CharacterBodypart:
+			total_speed += i.Stats[2]
+			total_attack += i.Stats[0]
+			total_defence += i.Stats[1]
+	
+	total_speed *= 10
+	total_attack *= 10
+	total_defence += 10
+	
+	max_speed += total_speed
+	defence += total_defence
+	attack += total_attack
+
 func set_parts(PartArray: Array):
 	Head.part_name = PartArray[0]
 	Torso.part_name = PartArray[1]
@@ -89,3 +110,9 @@ func set_parts(PartArray: Array):
 	RArm.part_name = PartArray[3]
 	LLeg.part_name = PartArray[4]
 	RLeg.part_name = PartArray[5]
+	
+	for i in get_children():
+		if i is CharacterBodypart:
+			i.set_part()
+	
+	set_stats()

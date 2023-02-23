@@ -19,12 +19,12 @@ func _process(delta):
 	Mouse_follow.global_position = get_global_mouse_position()
 
 func load_slot():
-	Inventory.HeadSlot = "Basic Head"
-	Inventory.TorsoSlot = "Basic Torso"
-	Inventory.LArmSlot = "Basic Left Arm"
-	Inventory.RArmSlot = "Basic Right Arm"
-	Inventory.LLegSlot = "Basic Left Leg"
-	Inventory.RLegSlot = "Basic Right Leg"
+	Inventory.HeadSlot = "Bull Head"
+	Inventory.TorsoSlot = "Bull Torso"
+	Inventory.LArmSlot = "Bull Left Arm"
+	Inventory.RArmSlot = "Bull Right Arm"
+	Inventory.LLegSlot = "Bull Left Leg"
+	Inventory.RLegSlot = "Bull Right Leg"
 	
 	HeadSlot.CurrentPart = Inventory.HeadSlot
 	TorsoSlot.CurrentPart = Inventory.TorsoSlot

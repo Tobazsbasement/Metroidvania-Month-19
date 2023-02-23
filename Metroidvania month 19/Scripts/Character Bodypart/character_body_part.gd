@@ -25,19 +25,20 @@ func _process(_delta):
 	pass
 
 func set_part():
-	match part_name:
-		"Basic Head":
-			partslot = PARTSLOTS.HEAD
-		"Basic Torso":
-			partslot = PARTSLOTS.TORSO
-		"Basic Left Arm":
-			partslot = PARTSLOTS.LARM
-		"Basic Right Arm":
-			partslot = PARTSLOTS.RARM
-		"Basic Left Leg":
-			partslot = PARTSLOTS.LLEG
-		"Basic Right Leg":
-			partslot = PARTSLOTS.RLEG
+	if part_name.contains("Head"):
+		partslot = PARTSLOTS.HEAD
+	elif part_name.contains("Torso"):
+		partslot = PARTSLOTS.TORSO
+	elif part_name.contains("Left Arm"):
+		partslot = PARTSLOTS.LARM
+	elif part_name.contains("Right Arm"):
+		partslot = PARTSLOTS.RARM
+	elif part_name.contains("Left Leg"):
+		partslot = PARTSLOTS.LLEG
+	else:
+		partslot = PARTSLOTS.RLEG
+	
+	set_stats()
 
 func set_stats():
 	if !part_name.is_empty():
