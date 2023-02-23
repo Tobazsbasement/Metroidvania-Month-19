@@ -23,7 +23,6 @@ texture = ExtResource("1_28jr2")
 
 [node name="Head Slot" parent="." instance=ExtResource("2_2rj3n")]
 position = Vector2(0, -206)
-Part = 0
 
 [node name="Torso Slot" parent="." instance=ExtResource("2_2rj3n")]
 position = Vector2(3, 76)
@@ -44,3 +43,5 @@ Part = 5
 [node name="L Leg Slot" parent="." instance=ExtResource("2_2rj3n")]
 position = Vector2(-105, 209)
 Part = 4
+
+[node name="Mouse Follow" type="Node2D" parent="."]

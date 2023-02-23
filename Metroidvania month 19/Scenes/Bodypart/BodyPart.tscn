@@ -1,21 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceknyjeqjg8ot"]
+[gd_scene load_steps=5 format=3 uid="uid://ceknyjeqjg8ot"]
 
-[ext_resource type="Script" path="res://Scripts/Body Parts/Body Part Template.gd" id="1_e7873"]
+[ext_resource type="Script" path="res://Scripts/Body Parts/Body Part Template.gd" id="1_h2in5"]
+[ext_resource type="Texture2D" uid="uid://bq7bskd4c67d5" path="res://icon.svg" id="2_0d0un"]
+[ext_resource type="PackedScene" uid="uid://caytc4py8idev" path="res://Scenes/Bodypart/Bodypart Description/part_description.tscn" id="3_87krl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qrxa"]
 size = Vector2(92, 88)
 
 [node name="BodyPart" type="Area2D"]
-script = ExtResource("1_e7873")
+z_index = 1
+script = ExtResource("1_h2in5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-24, -7)
-scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_0d0un")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_8qrxa")
 
+[node name="Part Description" parent="." instance=ExtResource("3_87krl")]
+z_index = 2
+position = Vector2(87, -40)
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" parent="Part Description" index="0"]
+position = Vector2(14.5, 120.333)
+
+[node name="Name Label" parent="Part Description" index="1"]
+offset_left = -148.0
+offset_top = 45.0
+offset_right = 166.0
+offset_bottom = 76.0
+
+[node name="Description label" parent="Part Description" index="2"]
+offset_left = -145.0
+offset_top = 78.0
+offset_right = 175.0
+offset_bottom = 193.0
+
+[node name="Button" parent="Part Description" index="3"]
+offset_left = -268.0
+offset_top = -58.0
+offset_right = -12.0
+offset_bottom = 192.0
+mouse_filter = 1
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+
+[editable path="Part Description"]

@@ -5,7 +5,7 @@ class_name CharacterBodypart
 
 @export var partslot: PARTSLOTS
 
-var Stats:Array = [0, 0, 0, 0, "", Texture]
+var Stats:Array = [0, 0, 0, ""]
 
 enum PARTSLOTS {
 	HEAD,
@@ -43,4 +43,3 @@ func set_stats():
 	if !part_name.is_empty():
 		print(part_name)
 		Stats = BodyPartDatabase.parts[part_name]
-		Sprite.texture = Stats[5]

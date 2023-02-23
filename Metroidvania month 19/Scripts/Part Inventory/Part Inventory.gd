@@ -8,21 +8,30 @@ extends Node2D
 @onready var RArmSlot = $"R Arm Slot"
 @onready var LLegSlot = $"L Leg Slot"
 @onready var RLegSlot = $"R Leg Slot"
+@onready var Mouse_follow = $"Mouse Follow"
 
-var save_path: String = "user://Inventory.tres"
-
-func _ready():
-	pass
-
+var save_path: String = "user://Inventory.dat"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("LeftClick"):
-		save_slot()
+		pass
+	Mouse_follow.global_position = get_global_mouse_position()
 
 func load_slot():
-	Inventory.HeadSlot = "Placeholder Head"
+	Inventory.HeadSlot = "Basic Head"
+	Inventory.TorsoSlot = "Basic Torso"
+	Inventory.LArmSlot = "Basic Left Arm"
+	Inventory.RArmSlot = "Basic Right Arm"
+	Inventory.LLegSlot = "Basic Left Leg"
+	Inventory.RLegSlot = "Basic Right Leg"
+	
 	HeadSlot.CurrentPart = Inventory.HeadSlot
+	TorsoSlot.CurrentPart = Inventory.TorsoSlot
+	LArmSlot.CurrentPart = Inventory.LArmSlot
+	RArmSlot.CurrentPart = Inventory.RArmSlot
+	LLegSlot.CurrentPart = Inventory.LLegSlot
+	RLegSlot.CurrentPart = Inventory.RLegSlot
 	HeadSlot.initializie_part(HeadSlot.CurrentPart)
 	TorsoSlot.initializie_part(Inventory.TorsoSlot)
 	LArmSlot.initializie_part(Inventory.LArmSlot)
@@ -37,15 +46,5 @@ func save_slot():
 	Inventory.RArmSlot = RArmSlot.CurrentPart
 	Inventory.LLegSlot = LLegSlot.CurrentPart
 	Inventory.RLegSlot = RLegSlot.CurrentPart
-
-
-func save_inventory():
-	var save = ResourceSaver.save(Inventory, save_path)
-	assert(save == OK)
-
-func load_inventory():
-	if ResourceLoader.exists(save_path):
-		Inventory = ResourceLoader.load(save_path)
-	load_slot()
 
 

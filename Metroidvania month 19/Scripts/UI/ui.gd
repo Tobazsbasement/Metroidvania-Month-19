@@ -22,8 +22,6 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("Interract"):
 		is_showing = !is_showing
-		PlayerInventory.save_inventory()
-		PlayerInventory.load_inventory()
 
 func initialize_player_inventory():
 	PlayerInventory.load_slot()

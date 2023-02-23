@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://caytc4py8idev"]
+
+[ext_resource type="Texture2D" uid="uid://dorurtgkx6g41" path="res://Assets/Part Inventory/BG.png" id="1_8heb6"]
+[ext_resource type="Script" path="res://Scripts/Body Parts/Part Description/part_description.gd" id="1_wfwdm"]
+
+[sub_resource type="SystemFont" id="SystemFont_txknk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5h47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0re8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tp6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w67l2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2bgsn"]
+
+[node name="Part Description" type="Node2D"]
+script = ExtResource("1_wfwdm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.3)
+texture = ExtResource("1_8heb6")
+
+[node name="Name Label" type="Label" parent="."]
+offset_left = -163.0
+offset_top = -75.0
+offset_right = -66.0
+offset_bottom = -48.0
+theme_override_fonts/font = SubResource("SystemFont_txknk")
+theme_override_font_sizes/font_size = 20
+text = "PART NAME"
+
+[node name="Description label" type="Label" parent="."]
+z_index = 2
+offset_left = -163.0
+offset_top = -39.0
+offset_right = 158.0
+offset_bottom = 71.0
+theme_override_fonts/font = SubResource("SystemFont_txknk")
+theme_override_font_sizes/font_size = 15
+text = "DESCRIPTION"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = -170.0
+offset_top = -80.0
+offset_right = 167.0
+offset_bottom = 82.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o5h47")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0re8n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2tp6e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w67l2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2bgsn")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
